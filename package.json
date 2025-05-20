@@ -7,7 +7,7 @@
     "npm": "7.x"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server.js",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "dev": "concurrently \"cd server && nodemon server.js\" \"cd client && npm start\""
   },
