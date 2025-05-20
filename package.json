@@ -1,15 +1,28 @@
 {
   "name": "Wedding 2025",
   "version": "1.0.0",
+  "description": " ",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build-client",
+    "build-client": "cd client && npm install && npm run build",
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "dev": "concurrently \"cd server && nodemon server.js\" \"cd client && npm start\"",
+      "postinstall": "npm install --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "engines": {
     "node": "18.x",
     "npm": "7.x"
   },
-"scripts": {
-  "start": "node server.js",
-  "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-  "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\""
-},
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.1.10"
+  },
 
   "dependencies": {
     "cors": "^2.8.5",
@@ -18,9 +31,5 @@
     "json2csv": "^5.0.7",
     "mongoose": "^6.13.8",
     "multer": "^2.0.0"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.1",
-    "nodemon": "^3.1.10"
   }
 }
