@@ -6,11 +6,12 @@
     "node": "18.x",
     "npm": "7.x"
   },
-  "scripts": {
-    "start": "node server/server.js",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-    "dev": "concurrently \"cd server && nodemon server.js\" \"cd client && npm start\""
-  },
+"scripts": {
+  "start": "node server.js",
+  "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
+  "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\""
+},
+
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parser": "^3.2.0",
