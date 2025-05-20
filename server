@@ -1,0 +1,4 @@
+<script>start("/Volumes/2TBSSD/SeatingChart/client/src/server/");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("routes","routes",1,96,"96 B",1747764698,"5/20/25, 1:11:38 PM");</script>
+<script>addRow("server.js","server.js",0,2143,"2.1 kB",1747764675,"5/20/25, 1:11:15 PM");</script>
