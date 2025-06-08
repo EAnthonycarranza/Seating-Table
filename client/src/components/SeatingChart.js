@@ -2,10 +2,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import './SeatingChart.css';
+import floorPlanImg from './FloorPlan.jpg';
 
 function SeatingChart() {
   const [guests, setGuests] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showFloorPlan, setShowFloorPlan] = useState(false);
 
   useEffect(() => {
     // If using proxy in client/package.json, use relative URL
@@ -32,6 +34,12 @@ function SeatingChart() {
     <div className="find-seat-container">
       {/* Header centered vertically and horizontally */}
       <div className="header-container">
+        <button
+          className="floorplan-button"
+          onClick={() => setShowFloorPlan(true)}
+        >
+          Floor Plan
+        </button>
         <h1 className="title">Please Find Your Seat</h1>
         <input
           type="text"
@@ -53,6 +61,23 @@ function SeatingChart() {
           );
         })}
       </div>
+      {showFloorPlan && (
+        <div className="modal-overlay" onClick={() => setShowFloorPlan(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button
+              className="close-modal"
+              onClick={() => setShowFloorPlan(false)}
+            >
+              ×
+            </button>
+            <img
+              src={floorPlanImg}
+              alt="Floor Plan"
+              className="floorplan-image"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
